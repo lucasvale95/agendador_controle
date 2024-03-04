@@ -2,7 +2,8 @@ import Usuario from "../models/User.js";
 
 const findAll = async (req, res) => {
   try {
-    const usuario = await Usuario.findOne({ idUser: req.params.idUsuario });
+    const idUser = req.params.idUsuario;
+    const usuario = await Usuario.find({ idUser });
 
     if (!usuario) {
       return res
