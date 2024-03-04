@@ -24,8 +24,15 @@ const findAll = async (req, res) => {
       nickname,
       "- Mundo:",
       world,
-      "Data Validade:",
+      "- Validade:",
       new Date(usuario.dataValidade)
+    );
+
+    console.log(
+      usuario.dataValidade,
+      dataAtual,
+      "-",
+      usuario.dataValidade > dataAtual
     );
 
     if (usuario.dataValidade > dataAtual) {
