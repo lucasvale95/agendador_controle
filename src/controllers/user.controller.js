@@ -16,7 +16,7 @@ const findAll = async (req, res) => {
     }
 
     const dataAtualTimestamp = Date.now();
-    const dataValidadeTimestamp = new Date(usuario.dataValidade).getTime();
+    const dataValidadeTimestamp = new Date(usuario[0].dataValidade).getTime();
 
     console.log(
       "idUser:",
@@ -30,7 +30,7 @@ const findAll = async (req, res) => {
     );
 
     console.log(
-      usuario.dataValidade,
+      usuario[0].dataValidade,
       dataAtualTimestamp,
       "-",
       usuario.dataValidade > dataAtualTimestamp
