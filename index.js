@@ -5,6 +5,7 @@ import rateLimit from "express-rate-limit";
 import cors from "cors";
 
 const app = express();
+app.set("trust proxy", 1);
 const limiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 1 minutos
   max: 550, // Quantidade máxima de requisições permitidas por IP no intervalo de tempo

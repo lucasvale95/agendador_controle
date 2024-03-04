@@ -5,8 +5,6 @@ const connectDatabase = () => {
 
   mongoose
     .connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
       serverSelectionTimeoutMS: 300000,
     })
     .then(() => console.log("MongoDB Connected"))
