@@ -29,13 +29,6 @@ const findAll = async (req, res) => {
       new Date(dataValidadeTimestamp)
     );
 
-    console.log(
-      usuario[0].dataValidade,
-      dataAtualTimestamp,
-      "-",
-      usuario.dataValidade > dataAtualTimestamp
-    );
-
     if (dataValidadeTimestamp > dataAtualTimestamp) {
       res.json(usuario);
     } else {
