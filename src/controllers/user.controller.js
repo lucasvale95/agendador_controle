@@ -15,7 +15,8 @@ const findAll = async (req, res) => {
         .json({ mensagem: "Usuário não encontrado ou expirado" });
     }
 
-    const dataAtual = Date.now();
+    const dataAtualTimestamp = Date.now();
+    const dataValidadeTimestamp = new Date(usuario.dataValidade).getTime();
 
     console.log(
       "idUser:",
@@ -25,17 +26,17 @@ const findAll = async (req, res) => {
       "- Mundo:",
       world,
       "- Validade:",
-      new Date(usuario.dataValidade)
+      new Date(dataValidadeTimestamp)
     );
 
     console.log(
       usuario.dataValidade,
-      dataAtual,
+      dataAtualTimestamp,
       "-",
-      usuario.dataValidade > dataAtual
+      usuario.dataValidade > dataAtualTimestamp
     );
 
-    if (usuario.dataValidade > dataAtual) {
+    if (dataValidadeTimestamp > dataAtualTimestamp) {
       res.json(usuario);
     } else {
       res.json({ mensagem: "Usuário não encontrado ou expirado" });
