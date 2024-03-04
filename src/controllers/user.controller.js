@@ -3,11 +3,9 @@ import Usuario from "../models/User.js";
 const findAll = async (req, res) => {
   try {
     const idUser = req.params.idUsuario;
-    const usuario = await findAllService(idUser);
+    const usuario = await Usuario.find({ idUser });
 
     console.log(usuario);
-
-    const findAllService = (id) => Usuario.find({ id });
 
     if (!usuario) {
       return res
