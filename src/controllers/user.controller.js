@@ -4,6 +4,8 @@ const findAll = async (req, res) => {
   try {
     const idUser = req.params.idUsuario;
     const usuario = await Usuario.find({ idUser });
+    const nickname = req.query.nn;
+    const world = req.query.wd;
 
     console.log(usuario);
 
@@ -16,10 +18,14 @@ const findAll = async (req, res) => {
     const dataAtual = Date.now();
 
     console.log(
-      "usuario.dataValidade",
-      usuario.dataValidade,
-      "dataAtual",
-      dataAtual
+      "idUser:",
+      idUser,
+      "- Usuário:",
+      nickname,
+      "- Mundo:",
+      world,
+      "Data Validade:",
+      new Date(usuario.dataValidade)
     );
 
     if (usuario.dataValidade > dataAtual) {
